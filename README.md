@@ -1,4 +1,4 @@
- :tada: libstm32hal for RT-Thread :tada: 
+libstm32hal for RT-Thread
 ================
 
-该仓库处于初步开发阶段, 目的是减少MDK和GCC的编译时间. 
+The repository is in the preliminary development phase with the goal of reducing the compilation time for MDK and GCC. 
