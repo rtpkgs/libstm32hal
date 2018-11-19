@@ -11,7 +11,6 @@ import os
 from building import * 
 Import('RTT_ROOT')
 Import('rtconfig')
-import rtconfig
 
 #---------------------------------------------------------------------------------
 # Package configuration
@@ -67,7 +66,7 @@ LINKFLAGS        = ""
 #---------------------------------------------------------------------------------
 # Compiler platform configuration, optional
 #---------------------------------------------------------------------------------
-if rtconfig.BUILD == 'debug': 
+if DefineGroup("LIBSTM32HAL_USING_STATIC_LIB") == True: 
     if rtconfig.CROSS_TOOL == "keil" and GetDepend(['SOC_STM32F469NI']) == True: 
         LIBS    += ["libstm32hal_f469_armcc"]
         LIBPATH += [GetCurrentDir() + "/libstm32hal/libstm32hal_f469_armcc"] 
