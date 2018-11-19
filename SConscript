@@ -66,7 +66,7 @@ LINKFLAGS        = ""
 #---------------------------------------------------------------------------------
 # Compiler platform configuration, optional
 #---------------------------------------------------------------------------------
-if DefineGroup("LIBSTM32HAL_USING_STATIC_LIB") == True: 
+if GetDepend("LIBSTM32HAL_USING_STATIC_LIB") == True: 
     if rtconfig.CROSS_TOOL == "keil" and GetDepend(['SOC_STM32F469NI']) == True: 
         LIBS    += ["libstm32hal_f469_armcc"]
         LIBPATH += [GetCurrentDir() + "/libstm32hal/libstm32hal_f469_armcc"] 
