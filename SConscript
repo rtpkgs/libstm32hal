@@ -16,7 +16,7 @@ Import('rtconfig')
 # Package configuration
 #---------------------------------------------------------------------------------
 PKGNAME = "libstm32hal"
-VERSION = "v0.1.0"
+VERSION = "v0.2.0"
 DEPENDS = ["PKG_USING_LIBSTM32HAL"]
 
 #---------------------------------------------------------------------------------
@@ -71,6 +71,10 @@ if GetDepend("LIBSTM32HAL_USING_STATIC_LIB") == True:
         LIBS    += ["libstm32hal_f469_armcc"]
         LIBPATH += [GetCurrentDir() + "/libstm32hal/libstm32hal_f469_armcc"] 
         CPPPATH += [GetCurrentDir() + "/libstm32hal/libstm32hal_f469_armcc"] 
+    elif rtconfig.CROSS_TOOL == "gcc" and GetDepend(['SOC_STM32F469NI']) == True: 
+        LIBS    += ["stm32hal_f469_gcc"]
+        LIBPATH += [GetCurrentDir() + "/libstm32hal/libstm32hal_f469_gcc"] 
+        CPPPATH += [GetCurrentDir() + "/libstm32hal/libstm32hal_f469_gcc"] 
     else: 
         print("not support cross tool or soc!")
 else:
